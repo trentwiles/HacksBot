@@ -9,6 +9,11 @@ client.on("ready", () => {
   client.user.setGame('Hacks');
 });
 
+client.on("message", (msg) => {
+  msg.react("+1") // react thumbsup!
+  if (msg.author.bot) msg.delete(); //delete message
+})
+
 
 
 client.on("message", (message) => {
@@ -62,8 +67,22 @@ client.on("message", (message) => {
   if (message.content.startsWith(prefix + "vsco")) {
     message.channel.send("Are you a VSCO girl? ==> https://apps.riverside.rocks/apps/vsco");
   }
-  if (message.content.startsWith(prefix + "hack")){
+  if (message.content.startsWith(prefix + "glitch")){
+          var user = message.mentions.members.first();
           message.channel.send("Please wait as we start the hacks...");
+          setTimeout(() => {  message.channel.send("Stage One Finished."); }, 2000);
+          setTimeout(() => {  message.channel.send("Decypting passwords... Done."); }, 4000);
+          setTimeout(() => {  message.channel.send("%#%$#%@%#%$%#^%#@^ "); }, 20);
+          setTimeout(() => {  message.channel.send("%#%$#%@%%#%$%#%#@*^ "); }, 20);
+          setTimeout(() => {  message.channel.send("%#%$#%@%%#%$%#%#@*^ "); }, 20);
+          setTimeout(() => {  message.channel.send("%#%$#%@%%#%$%#%#@*^ "); }, 20);
+          setTimeout(() => {  message.channel.send("Finished. The password for " + user + " is ||kittenluv382||"); }, 1000);
+          message.delete();
+        }
+    if (message.content.startsWith(prefix + "hack")){
+          var user = message.mentions.members.first();
+          message.channel.send("Command is currently shut off.");
+
         }
   if (message.content.startsWith(prefix + "news")){
     request("https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey=b5703dbf0fd64142aca8aa1fbcb4d12f", function(err, res, body) {
@@ -72,7 +91,10 @@ client.on("message", (message) => {
     } else {
         console.log(err);
     }
+ 
 });
+
+    
   }
   
 });
